@@ -1,0 +1,19 @@
+{
+  "name": "foodquest",
+  "version": "1.0.0",
+  "description": "An app for foodies to go on food quests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milosbunijevac/sibilant-siblings.git"
+  },
+  "author": "Milos Bunijevac, Dylan Good, Adisa Stewart, Steven Chang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milosbunijevac/sibilant-siblings/issues"
+  },
+  "homepage": "https://github.com/milosbunijevac/sibilant-siblings#readme"
+}
