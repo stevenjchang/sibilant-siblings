@@ -22143,9 +22143,9 @@ var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _QuestItem = __webpack_require__(186);
+var _Task = __webpack_require__(187);
 
-var _QuestItem2 = _interopRequireDefault(_QuestItem);
+var _Task2 = _interopRequireDefault(_Task);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22181,9 +22181,9 @@ var Mainbody = function (_React$Component) {
               { className: 'panel-title' },
               'Quest'
             ),
-            _react2.default.createElement(_QuestItem2.default, null),
-            _react2.default.createElement(_QuestItem2.default, null),
-            _react2.default.createElement(_QuestItem2.default, null)
+            _react2.default.createElement(_Task2.default, null),
+            _react2.default.createElement(_Task2.default, null),
+            _react2.default.createElement(_Task2.default, null)
           )
         )
       );
@@ -22255,7 +22255,8 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 186 */
+/* 186 */,
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22279,16 +22280,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var QuestItem = function (_React$Component) {
-  _inherits(QuestItem, _React$Component);
+var Task = function (_React$Component) {
+  _inherits(Task, _React$Component);
 
-  function QuestItem(props) {
-    _classCallCheck(this, QuestItem);
+  function Task(props) {
+    _classCallCheck(this, Task);
 
-    return _possibleConstructorReturn(this, (QuestItem.__proto__ || Object.getPrototypeOf(QuestItem)).call(this, props));
+    return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).call(this, props));
   }
 
-  _createClass(QuestItem, [{
+  _createClass(Task, [{
     key: "render",
     value: function render() {
       return _react2.default.createElement(
@@ -22307,10 +22308,10 @@ var QuestItem = function (_React$Component) {
     }
   }]);
 
-  return QuestItem;
+  return Task;
 }(_react2.default.Component);
 
-exports.default = QuestItem;
+exports.default = Task;
 
 /***/ })
 /******/ ]);

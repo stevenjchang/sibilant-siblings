@@ -1,6 +1,6 @@
 import React from 'react';
 
-class QuestItem extends React.Component {
+class Task extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -18,4 +18,4 @@ class QuestItem extends React.Component {
   }
 }
 
-export default QuestItem;
+export default Task;
