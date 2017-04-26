@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import QuestItem from './QuestItem.jsx';
 
 class Mainbody extends React.Component {
@@ -13,8 +12,6 @@ class Mainbody extends React.Component {
         <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
-            <QuestItem />
-            <QuestItem />
             <QuestItem />
             <QuestItem />
             <QuestItem />

@@ -9540,10 +9540,6 @@ var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(50);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _Header = __webpack_require__(183);
 
 var _Header2 = _interopRequireDefault(_Header);
@@ -22084,10 +22080,6 @@ var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(50);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22106,23 +22098,23 @@ var Header = function (_React$Component) {
   }
 
   _createClass(Header, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
         _react2.default.createElement(
-          'div',
-          { className: 'page-header text-center' },
+          "div",
+          { className: "page-header text-center" },
           _react2.default.createElement(
-            'h1',
+            "h1",
             null,
-            'FoodQuest'
+            "FoodQuest"
           ),
           _react2.default.createElement(
-            'small',
+            "small",
             null,
-            'The go-to app for foodies'
+            "The go-to app for foodies"
           )
         )
       );
@@ -22150,10 +22142,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(50);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _QuestItem = __webpack_require__(186);
 
@@ -22195,8 +22183,6 @@ var Mainbody = function (_React$Component) {
             ),
             _react2.default.createElement(_QuestItem2.default, null),
             _react2.default.createElement(_QuestItem2.default, null),
-            _react2.default.createElement(_QuestItem2.default, null),
-            _react2.default.createElement(_QuestItem2.default, null),
             _react2.default.createElement(_QuestItem2.default, null)
           )
         )
@@ -22226,10 +22212,6 @@ var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(50);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22248,19 +22230,19 @@ var Footer = function (_React$Component) {
   }
 
   _createClass(Footer, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
         _react2.default.createElement(
-          'div',
-          { className: 'navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center' },
-          _react2.default.createElement('hr', null),
+          "div",
+          { className: "navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center" },
+          _react2.default.createElement("hr", null),
           _react2.default.createElement(
-            'h3',
+            "h3",
             null,
-            'This is the footer'
+            "This is the footer"
           )
         )
       );
@@ -22289,10 +22271,6 @@ var _react = __webpack_require__(51);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(50);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22311,18 +22289,18 @@ var QuestItem = function (_React$Component) {
   }
 
   _createClass(QuestItem, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
         _react2.default.createElement(
-          'div',
-          { className: 'panel panel-default' },
+          "div",
+          { className: "panel panel-default" },
           _react2.default.createElement(
-            'div',
-            { className: 'panel-body' },
-            'Restaurant, rating, thumbs up, money rating here'
+            "div",
+            { className: "panel-body" },
+            "Restaurant, rating, thumbs up, money rating here"
           )
         )
       );
