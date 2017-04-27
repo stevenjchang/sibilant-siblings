@@ -19,12 +19,13 @@
   },
   "homepage": "https://github.com/milosbunijevac/sibilant-siblings#readme",
   "dependencies": {
-    "mysql": "^2.13.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "morgan": "^1.8.1",
+    "mysql": "^2.13.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
     "yelp-fusion": "^1.0.3"
   },
   "devDependencies": {
