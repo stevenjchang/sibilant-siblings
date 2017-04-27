@@ -9763,12 +9763,8 @@ var Mainbody = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'panel-heading' },
-            _react2.default.createElement(
-              'h3',
-              { className: 'panel-title' },
-              'Quest'
-            ),
-            _react2.default.createElement(_QuestPage2.default, null)
+            _react2.default.createElement('div', { className: 'panel-title' }),
+            _react2.default.createElement(_ResultPage2.default, null)
           )
         )
       );
@@ -22354,8 +22350,11 @@ var AnotherQuestButton = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(Summary, null),
-        _react2.default.createElement(AnotherQuestButton, null)
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Start Another Quest'
+        )
       );
     }
   }]);
@@ -22413,6 +22412,11 @@ var ResultPage = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Abandon Quest'
+        ),
         _react2.default.createElement(_Summary2.default, null),
         _react2.default.createElement(_AnotherQuestButton2.default, null)
       );
@@ -22468,6 +22472,13 @@ var Summary = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          'You visited:'
+        ),
+        _react2.default.createElement(_SummaryTask2.default, null),
+        _react2.default.createElement(_SummaryTask2.default, null),
         _react2.default.createElement(_SummaryTask2.default, null)
       );
     }
@@ -22518,8 +22529,11 @@ var AnotherQuestButton = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(Summary, null),
-        _react2.default.createElement(AnotherQuestButton, null)
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Placeholder Task'
+        )
       );
     }
   }]);

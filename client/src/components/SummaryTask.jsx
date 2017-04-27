@@ -8,8 +8,7 @@ class AnotherQuestButton extends React.Component {
   render() {
     return (
       <div>
-        <Summary />
-        <AnotherQuestButton />
+        <h4>Placeholder Task</h4>
       </div>
     );
   }
