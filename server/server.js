@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
 
+app.use(express.static(path.join(__dirname, '../client/')));
+
 var port = process.env.PORT || 3000;
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
