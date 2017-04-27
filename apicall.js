@@ -14,7 +14,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
   const client = yelp.client(response.jsonBody.access_token);
 
   client.search(searchRequest).then(response => {
-    const allResults = response.jsonBody.businesses; 
+    const allResults = response.jsonBody.businesses; //this will put all businesses in the location above into allresults
     const prettyJson = JSON.stringify(allResults, null, 4);
     console.log(prettyJson);
   });
