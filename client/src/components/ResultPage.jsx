@@ -12,9 +12,9 @@ class ResultPage extends React.Component {
       <div>
         {/* This page has a STATEFULL animated background image. */}
         {/* This page has a STATEFULL headline text. */}
-        {/*<Summary />*/}
-        {/*<AnotherQuestButton />*/}
-        <h1> THIS is the result page </h1>
+        <h1>Abandon Quest</h1>
+        <Summary />
+        <AnotherQuestButton />
       </div>
     );
   }
