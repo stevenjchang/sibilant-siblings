@@ -1,5 +1,6 @@
 import React from 'react';
-import Task from './Task.jsx';
+import QuestPage from './QuestPage.jsx';
+import ResultPage from './ResultPage.jsx';
 
 class Mainbody extends React.Component {
   constructor (props) {
@@ -12,9 +13,7 @@ class Mainbody extends React.Component {
         <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
-            <Task />
-            <Task />
-            <Task />
+            <QuestPage />
           </div>
         </div>
       </div>
