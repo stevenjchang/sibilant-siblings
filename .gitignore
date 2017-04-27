@@ -1,3 +1,7 @@
 /node_modules
 testing.js
+<<<<<<< HEAD
 /.vscode
+=======
+.DS_Store
+>>>>>>> e3c9baa34ca15346d9283cdc21038c3e065d0eba
