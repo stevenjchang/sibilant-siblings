@@ -1,6 +1,6 @@
 import React from 'react';
 
-mockData = {
+const mockData = {
   'restaurants': [
     { 'id': 'molinari-delicatessen-san-francisco',
       'restaurant': 'Molinari Delicatessen',
