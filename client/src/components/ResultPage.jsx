@@ -1,6 +1,6 @@
 import React from 'react';
-import AnotherQuestButton from './AnotherQuestButton.jsx';
-import Summary from './Summary.jsx';
+// import AnotherQuestButton from './AnotherQuestButton.jsx';
+// import Summary from './Summary.jsx';
 
 class ResultPage extends React.Component {
   constructor(props) {
@@ -12,8 +12,9 @@ class ResultPage extends React.Component {
       <div>
         {/* This page has a STATEFULL animated background image. */}
         {/* This page has a STATEFULL headline text. */}
-        <Summary />
-        <AnotherQuestButton />
+        {/*<Summary />*/}
+        {/*<AnotherQuestButton />*/}
+        <h1> THIS is the result page </h1>
       </div>
     );
   }

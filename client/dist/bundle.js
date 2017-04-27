@@ -9588,57 +9588,7 @@ module.exports = __webpack_require__(122);
 
 
 /***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(9);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var AnotherQuestButton = function (_React$Component) {
-  _inherits(AnotherQuestButton, _React$Component);
-
-  function AnotherQuestButton(props) {
-    _classCallCheck(this, AnotherQuestButton);
-
-    return _possibleConstructorReturn(this, (AnotherQuestButton.__proto__ || Object.getPrototypeOf(AnotherQuestButton)).call(this, props));
-  }
-
-  _createClass(AnotherQuestButton, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(Summary, null),
-        _react2.default.createElement(AnotherQuestButton, null)
-      );
-    }
-  }]);
-
-  return AnotherQuestButton;
-}(_react2.default.Component);
-
-exports.default = AnotherQuestButton;
-
-/***/ }),
+/* 83 */,
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9799,10 +9749,20 @@ var Mainbody = function (_React$Component) {
   function Mainbody(props) {
     _classCallCheck(this, Mainbody);
 
-    return _possibleConstructorReturn(this, (Mainbody.__proto__ || Object.getPrototypeOf(Mainbody)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Mainbody.__proto__ || Object.getPrototypeOf(Mainbody)).call(this, props));
+
+    _this.state = { component: _react2.default.createElement(_QuestPage2.default, null) };
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(Mainbody, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      this.setState({ component: _react2.default.createElement(_ResultPage2.default, null) });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -9819,7 +9779,12 @@ var Mainbody = function (_React$Component) {
               { className: 'panel-title' },
               'Quest'
             ),
-            _react2.default.createElement(_QuestPage2.default, null)
+            _react2.default.createElement(
+              'a',
+              { href: '#', onClick: this.handleClick },
+              'Click me'
+            ),
+            this.state.component
           )
         )
       );
@@ -9904,14 +9869,6 @@ var _react = __webpack_require__(9);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AnotherQuestButton = __webpack_require__(83);
-
-var _AnotherQuestButton2 = _interopRequireDefault(_AnotherQuestButton);
-
-var _Summary = __webpack_require__(89);
-
-var _Summary2 = _interopRequireDefault(_Summary);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9919,6 +9876,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import AnotherQuestButton from './AnotherQuestButton.jsx';
+// import Summary from './Summary.jsx';
 
 var ResultPage = function (_React$Component) {
   _inherits(ResultPage, _React$Component);
@@ -9935,8 +9895,11 @@ var ResultPage = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Summary2.default, null),
-        _react2.default.createElement(_AnotherQuestButton2.default, null)
+        _react2.default.createElement(
+          'h1',
+          null,
+          ' THIS is the result page '
+        )
       );
     }
   }]);
@@ -9947,111 +9910,8 @@ var ResultPage = function (_React$Component) {
 exports.default = ResultPage;
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(9);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _SummaryTask = __webpack_require__(90);
-
-var _SummaryTask2 = _interopRequireDefault(_SummaryTask);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Summary = function (_React$Component) {
-  _inherits(Summary, _React$Component);
-
-  function Summary(props) {
-    _classCallCheck(this, Summary);
-
-    return _possibleConstructorReturn(this, (Summary.__proto__ || Object.getPrototypeOf(Summary)).call(this, props));
-  }
-
-  _createClass(Summary, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_SummaryTask2.default, null)
-      );
-    }
-  }]);
-
-  return Summary;
-}(_react2.default.Component);
-
-exports.default = Summary;
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(9);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var AnotherQuestButton = function (_React$Component) {
-  _inherits(AnotherQuestButton, _React$Component);
-
-  function AnotherQuestButton(props) {
-    _classCallCheck(this, AnotherQuestButton);
-
-    return _possibleConstructorReturn(this, (AnotherQuestButton.__proto__ || Object.getPrototypeOf(AnotherQuestButton)).call(this, props));
-  }
-
-  _createClass(AnotherQuestButton, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(Summary, null),
-        _react2.default.createElement(AnotherQuestButton, null)
-      );
-    }
-  }]);
-
-  return AnotherQuestButton;
-}(_react2.default.Component);
-
-exports.default = AnotherQuestButton;
-
-/***/ }),
+/* 89 */,
+/* 90 */,
 /* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
