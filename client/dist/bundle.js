@@ -9542,6 +9542,10 @@ var _Footer = __webpack_require__(84);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _QuestPage = __webpack_require__(87);
+
+var _QuestPage2 = _interopRequireDefault(_QuestPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9556,18 +9560,33 @@ var App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = { input: 'main_body' };
+
+    return _this;
   }
 
   _createClass(App, [{
+    key: 'handleClick',
+    value: function handleClick(componentName) {
+      this.setState({ input: componentName });
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var ComponentToRender = _Mainbody2.default;
+      if (this.state.input === 'main_body') {
+        ComponentToRender = _Mainbody2.default;
+      } else if (this.state.input === 'quest_page') {
+        ComponentToRender = _QuestPage2.default;
+      }
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_Mainbody2.default, null),
-        _react2.default.createElement(_Footer2.default, null)
+        _react2.default.createElement(ComponentToRender, null),
+        _react2.default.createElement(_Footer2.default, { handleClick: this.handleClick.bind(this) })
       );
     }
   }]);
@@ -9588,7 +9607,60 @@ module.exports = __webpack_require__(123);
 
 
 /***/ }),
-/* 83 */,
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(9);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AnotherQuestButton = function (_React$Component) {
+  _inherits(AnotherQuestButton, _React$Component);
+
+  function AnotherQuestButton(props) {
+    _classCallCheck(this, AnotherQuestButton);
+
+    return _possibleConstructorReturn(this, (AnotherQuestButton.__proto__ || Object.getPrototypeOf(AnotherQuestButton)).call(this, props));
+  }
+
+  _createClass(AnotherQuestButton, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Start Another Quest'
+        )
+      );
+    }
+  }]);
+
+  return AnotherQuestButton;
+}(_react2.default.Component);
+
+exports.default = AnotherQuestButton;
+
+/***/ }),
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9605,6 +9677,10 @@ var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Mainbody = __webpack_require__(86);
+
+var _Mainbody2 = _interopRequireDefault(_Mainbody);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9619,23 +9695,50 @@ var Footer = function (_React$Component) {
   function Footer(props) {
     _classCallCheck(this, Footer);
 
-    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+    _this.state = { component: _react2.default.createElement(_Mainbody2.default, null) };
+    return _this;
   }
 
   _createClass(Footer, [{
-    key: "render",
+    key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-          "div",
-          { className: "navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center" },
-          _react2.default.createElement("hr", null),
+          'div',
+          { className: 'navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center' },
+          _react2.default.createElement('hr', null),
           _react2.default.createElement(
-            "h3",
-            null,
-            "This is the footer"
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'Profile'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'MainBody'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: function onClick() {
+                return _this2.props.handleClick('quest_page');
+              } },
+            'QuestPage'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'Summary'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'Task'
           )
         )
       );
@@ -9870,6 +9973,14 @@ var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _AnotherQuestButton = __webpack_require__(83);
+
+var _AnotherQuestButton2 = _interopRequireDefault(_AnotherQuestButton);
+
+var _Summary = __webpack_require__(89);
+
+var _Summary2 = _interopRequireDefault(_Summary);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9878,21 +9989,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import AnotherQuestButton from './AnotherQuestButton.jsx';
-// import Summary from './Summary.jsx';
-
 var ResultPage = function (_React$Component) {
   _inherits(ResultPage, _React$Component);
 
   function ResultPage(props) {
     _classCallCheck(this, ResultPage);
 
+    console.log(props);
     return _possibleConstructorReturn(this, (ResultPage.__proto__ || Object.getPrototypeOf(ResultPage)).call(this, props));
   }
 
   _createClass(ResultPage, [{
     key: 'render',
     value: function render() {
+      console.log(props);
       return _react2.default.createElement(
         'div',
         null,
@@ -9901,8 +10011,7 @@ var ResultPage = function (_React$Component) {
           null,
           'Abandon Quest'
         ),
-        _react2.default.createElement(Summary, null),
-        _react2.default.createElement(AnotherQuestButton, null)
+
       );
     }
   }]);
@@ -9913,9 +10022,7 @@ var ResultPage = function (_React$Component) {
 exports.default = ResultPage;
 
 /***/ }),
-/* 90 */,
-/* 91 */,
-/* 92 */
+
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
