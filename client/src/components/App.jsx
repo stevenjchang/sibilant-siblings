@@ -2,11 +2,11 @@ import React from 'react';
 import Header from './Header.jsx';
 import MainBody from './Mainbody.jsx';
 import Footer from './Footer.jsx';
-import QuestPage from './QuestPage.jsx'; 
-import ProfilePage from './ProfilePage.jsx';
+import QuestPage from './QuestPage.jsx';
 import ResultPage from './ResultPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
+import ProfilePage from './ProfilePage.jsx';
 
 const data = window.exampleData;
 
