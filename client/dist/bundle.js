@@ -9556,10 +9556,19 @@ var App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = { input: '' };
+
+    return _this;
   }
 
   _createClass(App, [{
+    key: 'handleClick',
+    value: function handleClick(event) {
+      this.setState({ input: event });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -9567,7 +9576,7 @@ var App = function (_React$Component) {
         null,
         _react2.default.createElement(_Header2.default, null),
         _react2.default.createElement(_Mainbody2.default, null),
-        _react2.default.createElement(_Footer2.default, null)
+        _react2.default.createElement(_Footer2.default, { value: onChange = { handleClick: handleClick } })
       );
     }
   }]);
@@ -9944,12 +9953,14 @@ var ResultPage = function (_React$Component) {
   function ResultPage(props) {
     _classCallCheck(this, ResultPage);
 
+    console.log(props);
     return _possibleConstructorReturn(this, (ResultPage.__proto__ || Object.getPrototypeOf(ResultPage)).call(this, props));
   }
 
   _createClass(ResultPage, [{
     key: 'render',
     value: function render() {
+      console.log(props);
       return _react2.default.createElement(
         'div',
         null,

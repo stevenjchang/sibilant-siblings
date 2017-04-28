@@ -6,6 +6,13 @@ import Footer from './Footer.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {input: ''};
+
+  }
+
+  handleClick(event) {
+    this.setState({input: event});
   }
 
   render() {
@@ -13,7 +20,7 @@ class App extends React.Component {
       <div>
         <Header />
         <MainBody />
-        <Footer />
+        <Footer value= {onChange = {handleClick}} />
       </div>
     );
   }
