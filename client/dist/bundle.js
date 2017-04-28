@@ -9542,6 +9542,10 @@ var _Footer = __webpack_require__(84);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _QuestPage = __webpack_require__(87);
+
+var _QuestPage2 = _interopRequireDefault(_QuestPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9558,25 +9562,31 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-    _this.state = { input: '' };
+    _this.state = { input: 'main_body' };
 
     return _this;
   }
 
   _createClass(App, [{
     key: 'handleClick',
-    value: function handleClick(event) {
-      this.setState({ input: event });
+    value: function handleClick(componentName) {
+      this.setState({ input: componentName });
     }
   }, {
     key: 'render',
     value: function render() {
+      var ComponentToRender = _Mainbody2.default;
+      if (this.state.input === 'main_body') {
+        ComponentToRender = _Mainbody2.default;
+      } else if (this.state.input === 'quest_page') {
+        ComponentToRender = _QuestPage2.default;
+      }
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_Mainbody2.default, null),
-        _react2.default.createElement(_Footer2.default, { value: onChange = { handleClick: handleClick } })
+        _react2.default.createElement(ComponentToRender, null),
+        _react2.default.createElement(_Footer2.default, { handleClick: this.handleClick.bind(this) })
       );
     }
   }]);
@@ -9667,6 +9677,10 @@ var _react = __webpack_require__(9);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Mainbody = __webpack_require__(86);
+
+var _Mainbody2 = _interopRequireDefault(_Mainbody);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9681,23 +9695,50 @@ var Footer = function (_React$Component) {
   function Footer(props) {
     _classCallCheck(this, Footer);
 
-    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+    _this.state = { component: _react2.default.createElement(_Mainbody2.default, null) };
+    return _this;
   }
 
   _createClass(Footer, [{
-    key: "render",
+    key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-          "div",
-          { className: "navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center" },
-          _react2.default.createElement("hr", null),
+          'div',
+          { className: 'navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center' },
+          _react2.default.createElement('hr', null),
           _react2.default.createElement(
-            "h3",
-            null,
-            "This is the footer"
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'Profile'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'MainBody'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: function onClick() {
+                return _this2.props.handleClick('quest_page');
+              } },
+            'QuestPage'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'Summary'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleClick },
+            'Task'
           )
         )
       );
