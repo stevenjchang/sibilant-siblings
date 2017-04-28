@@ -1,9 +1,10 @@
 import React from 'react';
-// import AnotherQuestButton from './AnotherQuestButton.jsx';
-// import Summary from './Summary.jsx';
+import AnotherQuestButton from './AnotherQuestButton.jsx';
+import Summary from './Summary.jsx';
 
 class ResultPage extends React.Component {
   constructor(props) {
+    console.log(props);
     super(props);
   }
 
