@@ -10,6 +10,9 @@ class Summary extends React.Component {
     return (
       <div>
         {/* This page has a plain background image. */}
+        <h2>You visited:</h2>
+        <SummaryTask />
+        <SummaryTask />
         <SummaryTask />
       </div>
     );

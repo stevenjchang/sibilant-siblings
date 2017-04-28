@@ -8,10 +8,8 @@ class AnotherQuestButton extends React.Component {
   render() {
     return (
       <div>
-        {/* This component has a stateless plain background image. */}
         {/* This component has a stateless text headline. */}
-        <Summary />
-        <AnotherQuestButton />
+        <h3>Start Another Quest</h3>
       </div>
     );
   }
