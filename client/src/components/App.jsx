@@ -5,6 +5,8 @@ import Footer from './Footer.jsx';
 import QuestPage from './QuestPage.jsx'; 
 import ProfilePage from './ProfilePage.jsx';
 import ResultPage from './ResultPage.jsx';
+import LoginPage from './LoginPage.jsx';
+import SignupPage from './SignupPage.jsx';
 
 
 class App extends React.Component {
