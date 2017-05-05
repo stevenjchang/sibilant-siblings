@@ -22,8 +22,12 @@ class Footer extends React.Component {
               QuestPage
             </a>
   
-            <a href="#" onClick={this.handleClick}>
+            <a href="#" onClick={() => this.props.handleClick('login_page')}>
               Login
+            </a>
+
+            <a href="#" onClick={() => this.props.handleClick('signup_page')}>
+              Sign Up
             </a>
         </div>
       </div>

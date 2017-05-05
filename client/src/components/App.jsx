@@ -29,7 +29,9 @@ class App extends React.Component {
       ComponentToRender = LoginPage
     } else if (this.state.input === 'result_page'){
       ComponentToRender = ResultPage
-    }
+    } else if (this.state.input === 'signup_page'){
+      ComponentToRender = SignupPage
+    } 
     return (
       <div>
         <Header />

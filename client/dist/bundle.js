@@ -9716,6 +9716,8 @@ var App = function (_React$Component) {
         ComponentToRender = LoginPage;
       } else if (this.state.input === 'result_page') {
         ComponentToRender = _ResultPage2.default;
+      } else if (this.state.input === 'signup_page') {
+        ComponentToRender = SignupPage;
       }
       return _react2.default.createElement(
         'div',
@@ -9889,8 +9891,17 @@ var Footer = function (_React$Component) {
           ),
           _react2.default.createElement(
             'a',
-            { href: '#', onClick: this.handleClick },
+            { href: '#', onClick: function onClick() {
+                return _this2.props.handleClick('login_page');
+              } },
             'Login'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: function onClick() {
+                return _this2.props.handleClick('signup_page');
+              } },
+            'Sign Up'
           )
         )
       );
