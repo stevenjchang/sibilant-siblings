@@ -9,6 +9,7 @@ class QuestPage extends React.Component {
   render() {
     return (
       <div>
+        <h2> Food Quest </h2>
         <Task />
         <Task />
         <Task />
