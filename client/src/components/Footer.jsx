@@ -12,20 +12,18 @@ class Footer extends React.Component {
       <div>
         <div className="navbar navbar-fixed-bottom col-md-6 col-md-offset-3 text-center">
           <hr />
-            <a href="#" onClick={this.handleClick}>
+            <a href="#" onClick={() => this.props.handleClick('profile_page')}>
               Profile
             </a>
-            <a href="#" onClick={this.handleClick}>
-              MainBody
+            <a href="#" onClick={() => this.props.handleClick('result_page')}>
+              Results
             </a>
             <a href="#" onClick={() => this.props.handleClick('quest_page')}>
               QuestPage
             </a>
+  
             <a href="#" onClick={this.handleClick}>
-              Summary
-            </a>
-            <a href="#" onClick={this.handleClick}>
-              Task
+              Login
             </a>
         </div>
       </div>

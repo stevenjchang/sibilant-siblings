@@ -4,12 +4,12 @@ import Summary from './Summary.jsx';
 
 class ResultPage extends React.Component {
   constructor(props) {
-    console.log(props);
+    // console.log(props);
     super(props);
   }
 
   render() {
-    console.log(props);
+    // console.log(props);
     return (
       <div>
         {/* This page has a STATEFULL animated background image. */}
