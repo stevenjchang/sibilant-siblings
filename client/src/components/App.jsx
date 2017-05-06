@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import Header from './Header.jsx';
 import MainBody from './Mainbody.jsx';
 import Footer from './Footer.jsx';
@@ -15,10 +16,19 @@ class App extends React.Component {
     super(props);
     this.state = {input: 'quest_page', biz: data};
   }
-  
+
   questOnClick(componentName) {
+    $.ajax({
+      url: '',
+      method: 'GET',
+      success: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log('Some Error:', err);
+      }
+    });
     this.setState({input: componentName});
-    this.state = {input: 'quest_page', biz: data};
   }
   
   handleClick(componentName) {
@@ -48,6 +58,8 @@ class App extends React.Component {
             <h3 className="panel-title">Quest</h3>
 
               <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
+                   
+            <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
 
           </div>
         </div>
