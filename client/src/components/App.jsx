@@ -44,7 +44,7 @@ class App extends React.Component {
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
                 
-              <ComponentToRender />
+              <ComponentToRender restos={this.state.biz}/>
 
           </div>
         </div>
