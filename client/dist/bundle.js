@@ -9775,11 +9775,17 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-    _this.state = { input: 'main_body', biz: data };
+    _this.state = { input: 'quest_page', biz: data };
     return _this;
   }
 
   _createClass(App, [{
+    key: 'questOnClick',
+    value: function questOnClick(componentName) {
+      this.setState({ input: componentName });
+      this.state = { input: 'quest_page', biz: data };
+    }
+  }, {
     key: 'handleClick',
     value: function handleClick(componentName) {
       this.setState({ input: componentName });
@@ -9787,7 +9793,7 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var ComponentToRender = _Mainbody2.default;
+      var ComponentToRender = _QuestPage2.default;
       if (this.state.input === 'quest_page') {
         ComponentToRender = _QuestPage2.default;
       } else if (this.state.input === 'profile_page') {
@@ -9817,7 +9823,7 @@ var App = function (_React$Component) {
                 { className: 'panel-title' },
                 'Quest'
               ),
-              _react2.default.createElement(ComponentToRender, null)
+              _react2.default.createElement(ComponentToRender, { questOnClick: this.questOnClick.bind(this), restos: this.state.biz })
             )
           )
         ),
@@ -10234,7 +10240,7 @@ var ProfilePage = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(_Profile2.default, null),
-        _react2.default.createElement(_QuestButton2.default, null),
+        _react2.default.createElement(_QuestButton2.default, { questOnClick: this.props.questOnClick }),
         _react2.default.createElement(_QuestLog2.default, null)
       );
     }
@@ -10280,12 +10286,16 @@ var QuestButton = function (_React$Component) {
   }
 
   _createClass(QuestButton, [{
-    key: "render",
+    key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
-        "button",
-        { type: "button" },
-        "Quest!"
+        'button',
+        { type: 'button', onClick: function onClick() {
+            return _this2.props.questOnClick('quest_page');
+          } },
+        'Quest!'
       );
     }
   }]);

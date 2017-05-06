@@ -13,18 +13,14 @@ const data = window.exampleData;
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {input: 'main_body', biz: data};
-
+    this.state = {input: 'quest_page', biz: data};
   }
   
-
   questOnClick(componentName) {
     this.setState({input: componentName});
-    this.state = {input: 'main_body', biz: data};
+    this.state = {input: 'quest_page', biz: data};
   }
   
-
   handleClick(componentName) {
     this.setState({input: componentName});
   }
@@ -50,9 +46,6 @@ class App extends React.Component {
           <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
-                
-
-            
 
               <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
 
