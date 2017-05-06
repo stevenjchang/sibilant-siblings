@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import Header from './Header.jsx';
 import MainBody from './Mainbody.jsx';
 import Footer from './Footer.jsx';
@@ -13,13 +14,21 @@ const data = window.exampleData;
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {input: 'main_body', biz: data};
-
+    this.state = {input: 'quest_page', biz: data};
   }
   
 
-  questOnClick(componentName) {
+  questOnClick(componentName){
+     $.ajax({
+      url: '/getRestaurants',
+      method: 'GET',
+      success: (data) => {
+        console.log(data)
+      },
+      error: (err) => {
+        console.log('Some Error:', err);
+      }
+    });
     this.setState({input: componentName});
   }
 
@@ -49,11 +58,8 @@ class App extends React.Component {
           <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
-                
-
-            
-
-              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
+                   
+            <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
 
           </div>
         </div>
