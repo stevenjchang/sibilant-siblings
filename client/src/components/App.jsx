@@ -14,25 +14,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-<<<<<<< HEAD
     this.state = {input: 'main_body', biz: data};
-=======
-    this.state = {input: 'main_body', data: []};
 
->>>>>>> redirect on quest button
   }
   
 
-  questOnClick(componentName){
+  questOnClick(componentName) {
     this.setState({input: componentName});
+    this.state = {input: 'main_body', biz: data};
   }
+  
 
   handleClick(componentName) {
     this.setState({input: componentName});
   }
 
   render() {
-    var ComponentToRender = MainBody;
+    var ComponentToRender = QuestPage;
     if (this.state.input === 'quest_page') {
       ComponentToRender = QuestPage;
     } else if (this.state.input === 'profile_page') {
