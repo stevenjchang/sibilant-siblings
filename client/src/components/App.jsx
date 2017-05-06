@@ -14,9 +14,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+<<<<<<< HEAD
     this.state = {input: 'main_body', biz: data};
+=======
+    this.state = {input: 'main_body', data: []};
+
+>>>>>>> redirect on quest button
   }
   
+
+  questOnClick(componentName){
+    this.setState({input: componentName});
+  }
 
   handleClick(componentName) {
     this.setState({input: componentName});
@@ -44,7 +53,10 @@ class App extends React.Component {
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
                 
-              <ComponentToRender restos={this.state.biz}/>
+
+            
+
+              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
 
           </div>
         </div>
