@@ -16,6 +16,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
+app.get('/getRestaurants', function(req, res) {
+  res.send('hey');
+});
+
 app.post('/', function (req, res) {
   console.log('*** req.body *** >server.js --> ', req.body);
   // res.send('POST request received inside server.js');

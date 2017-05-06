@@ -16,14 +16,13 @@ class App extends React.Component {
     super(props);
     this.state = {input: 'quest_page', biz: data};
   }
-  
 
-  questOnClick(componentName){
-     $.ajax({
+  questOnClick(componentName) {
+    $.ajax({
       url: '/getRestaurants',
       method: 'GET',
       success: (data) => {
-        console.log(data)
+        console.log(data);
       },
       error: (err) => {
         console.log('Some Error:', err);
@@ -42,14 +41,13 @@ class App extends React.Component {
       ComponentToRender = QuestPage;
     } else if (this.state.input === 'profile_page') {
       ComponentToRender = ProfilePage;
-    } else if (this.state.input === 'result_page') {
-      ComponentToRender = ResultPage;
     } else if (this.state.input === 'login_page') {
       ComponentToRender = LoginPage;
+    } else if (this.state.input === 'result_page') {
+      ComponentToRender = ResultPage;
     } else if (this.state.input === 'signup_page') {
       ComponentToRender = SignupPage;
     } 
-
     return (
       <div>
         <Header />
@@ -58,9 +56,9 @@ class App extends React.Component {
           <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
-                   
-            <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
 
+              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
+                   
           </div>
         </div>
 
