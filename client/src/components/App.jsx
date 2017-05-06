@@ -19,7 +19,6 @@ class App extends React.Component {
 
   questOnClick(componentName) {
     $.ajax({
-      url: '',
       url: '/getRestaurants',
       method: 'GET',
       success: (data) => {
@@ -29,9 +28,8 @@ class App extends React.Component {
         console.log('Some Error:', err);
       }
     });
-
-    this.state = {input: 'main_body', biz: data};
-
+      this.setState({input: componentName});
+    }
   }
 
   handleClick(componentName) {
