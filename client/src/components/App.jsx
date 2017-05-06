@@ -28,8 +28,7 @@ class App extends React.Component {
         console.log('Some Error:', err);
       }
     });
-      this.setState({input: componentName});
-    }
+    this.setState({input: componentName});
   }
 
   handleClick(componentName) {
@@ -60,8 +59,6 @@ class App extends React.Component {
 
               <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
                    
-            <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
-
           </div>
         </div>
 
