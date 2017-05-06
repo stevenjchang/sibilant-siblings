@@ -6787,6 +6787,11 @@ var QuestPage = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          'h2',
+          null,
+          ' Food Quest '
+        ),
         _react2.default.createElement(_Task2.default, null),
         _react2.default.createElement(_Task2.default, null),
         _react2.default.createElement(_Task2.default, null)
@@ -10203,6 +10208,16 @@ var Task = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { className: "panel-body" },
+            _react2.default.createElement(
+              "div",
+              { className: "checkbox col-xs-6" },
+              _react2.default.createElement(
+                "label",
+                null,
+                _react2.default.createElement("input", { type: "checkbox", value: "" }),
+                "Option 1"
+              )
+            ),
             "Restaurant, rating, thumbs up, money rating here"
           )
         )
