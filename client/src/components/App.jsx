@@ -8,14 +8,15 @@ import ResultPage from './ResultPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 
+const data = window.exampleData;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {input: 'main_body'};
-
+    this.state = {input: 'main_body', biz: data};
   }
+  
 
   handleClick(componentName) {
     this.setState({input: componentName});
@@ -23,16 +24,16 @@ class App extends React.Component {
 
   render() {
     var ComponentToRender = MainBody;
-     if (this.state.input === 'quest_page') {
+    if (this.state.input === 'quest_page') {
       ComponentToRender = QuestPage;
     } else if (this.state.input === 'profile_page') {
       ComponentToRender = ProfilePage;
     } else if (this.state.input === 'login_page') {
-      ComponentToRender = LoginPage
-    } else if (this.state.input === 'result_page'){
-      ComponentToRender = ResultPage
-    } else if (this.state.input === 'signup_page'){
-      ComponentToRender = SignupPage
+      ComponentToRender = LoginPage;
+    } else if (this.state.input === 'result_page') {
+      ComponentToRender = ResultPage;
+    } else if (this.state.input === 'signup_page') {
+      ComponentToRender = SignupPage;
     } 
     return (
       <div>
@@ -43,7 +44,7 @@ class App extends React.Component {
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
                 
-              <ComponentToRender />
+              <ComponentToRender restos={this.state.biz}/>
 
           </div>
         </div>
