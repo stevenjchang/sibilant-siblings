@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var path = require('path');
 
 app.use(express.static(path.join(__dirname, '../client/')));
+app.use(express.static(path.join(__dirname, '../db/')));
 
 var port = process.env.PORT || 3000;
 app.use(bodyParser.json()); // for parsing application/json
