@@ -26,6 +26,7 @@ const searchRequest = {
 // });
 
 //insert token here
+
 const token = '';
 
 const ApiCall = function(req, res) {
@@ -57,3 +58,5 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 }).catch(e => {
   console.log(e);
 });
+
+module.exports = ApiCall;
