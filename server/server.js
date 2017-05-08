@@ -9,8 +9,9 @@ app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
 
 var port = process.env.PORT || 3000;
-app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json()); // for parsing application/json
+
 app.use (morgan('dev'));
 
 app.get('/', function (req, res) {
@@ -32,7 +33,9 @@ app.get('/quest', function (req, res) {
 })
 
 app.post('/quest', function (req, res) {
-  ApiCall(req, res);
+  console.log("SERVER", req.body);
+  res.send(req.body);
+  // ApiCall(req, res);
 });
 
 app.listen(port, function () {

@@ -19,10 +19,23 @@ class App extends React.Component {
 
   questOnClick(componentName) {
     $.ajax({
-      url: '/getRestaurants',
+      url: '/quest',
       method: 'GET',
       success: (data) => {
-        console.log(data);
+        // console.log(data);
+        $.ajax({
+          url: '/quest',
+          method: 'POST',
+          data: JSON.stringify(data),
+          contentType: 'application/json',
+          dataType: 'json',
+          success: ()=>{
+            console.log('this was posted');
+          },
+          error: (err)=>{
+            console.log('SOMETHING FUCKED UP', err);
+          }
+        });
       },
       error: (err) => {
         console.log('Some Error:', err);
