@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
+var ApiCall = require('./../apicall.js');
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -20,6 +21,14 @@ app.post('/', function (req, res) {
   console.log('*** req.body *** >server.js --> ', req.body);
   // res.send('POST request received inside server.js');
   res.send(req.body);
+});
+
+app.get('/quest', function (req, res) {
+  ApiCall(req, res);
+})
+
+app.post('/quest', function (req, res) {
+  ApiCall(req, res);
 });
 
 app.listen(port, function () {
