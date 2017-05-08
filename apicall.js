@@ -23,7 +23,7 @@ const searchRequest = {
 // });
 
 //insert token here
-const token = "4iysnX9j967AeRyuRTTGBllbcW64UkOKo3WfnWe_gymDsOzUVMGYJmML5L9wVzsgMnnQjExWFgQ1ZnV2Zub0QDvPpOYwYknTlguYSQ7oueUFe1EPN8LX5bZ31ID_WHYx";
+const token = "";
 
 const ApiCall = function(req, res) {
   const location = req.body.zip ? req.body.zip : 94105;
