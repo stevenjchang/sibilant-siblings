@@ -41,13 +41,7 @@ const ApiCall = function(req, res) {
   });
 };
 
-<<<<<<< HEAD
-module.exports = ApiCall;
-
-yelp.accessToken(clientId, clientSecret).then(response => {
-=======
 yelp.accessToken(ApiSecrets.clientId, ApiSecrets.clientSecret).then(response => {
->>>>>>> Fix some .gitignore problems
   const client = yelp.client(response.jsonBody.access_token);
   console.log('access_token: ', response.jsonBody.access_token);
   client.search(searchRequest).then(response => {
