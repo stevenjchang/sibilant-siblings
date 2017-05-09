@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
 var ApiCall = require('./../apicall.js');
+var getQuestFromDb = require('./helperFunctions.js').getQuestFromDb;
+var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -29,7 +31,19 @@ app.post('/', function (req, res) {
 });
 
 app.get('/quest', function (req, res) {
-  ApiCall(req, res);
+  getQuestFromDb(req.body, function(err, result) {
+    if(err) {
+      console.log('error from getQuestFromDb, inside server.js');
+    } else {
+      getRestaurantsFromYelp(result, function(err, result) {
+        if(err) {
+          console.log('error from getRestaurantsFromYelp, inside server.js');
+        } else {
+          res.send(result);
+        }
+      })
+    }
+  })
 })
 
 app.post('/quest', function (req, res) {
@@ -37,6 +51,8 @@ app.post('/quest', function (req, res) {
   res.send(req.body);
   // ApiCall(req, res);
 });
+
+
 
 app.listen(port, function () {
   console.log('Example app listening on port ' + port + '!');
