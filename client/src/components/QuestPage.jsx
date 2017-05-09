@@ -10,9 +10,13 @@ class QuestPage extends React.Component {
     return (
       <div>
         <h2> Food Quest </h2>
-        <Task />
-        <Task />
-        <Task />
+          {this.props.restos.businesses.map((restas) => { 
+            return (
+              <div>
+                <Task boz={restas}/>; 
+              </div>
+            );
+          })}
       </div>
     );
   }
