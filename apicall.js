@@ -1,9 +1,5 @@
 const yelp = require('yelp-fusion');
-
-// Place holders for Yelp Fusion's OAuth 2.0 credentials. Grab them
-// from https://www.yelp.com/developers/v3/manage_app
-const clientId = 'ETenCKWbaeYw49T7i2wyPA';
-const clientSecret = 'zowBbHRr5tk7fDTMmcsSLVamh4B5W5wkpt7eXITTiT0qQXBftJ6AkBlUljPrJQBz';
+const ApiSecrets = require('./apisecrets.js');
 
 const searchRequest = {
   term: 'restaurant chinese vegetarian',
@@ -13,7 +9,7 @@ const searchRequest = {
   limit: 1
 };
 
-// yelp.accessToken(clientId, clientSecret).then(response => {
+// yelp.accessToken(ApiSecrets.clientId, ApiSecrets.clientSecret).then(response => {
 //   const client = yelp.client(response.jsonBody.access_token);
 
 //   client.search(searchRequest).then(response => {
@@ -45,9 +41,13 @@ const ApiCall = function(req, res) {
   });
 };
 
+<<<<<<< HEAD
 module.exports = ApiCall;
 
 yelp.accessToken(clientId, clientSecret).then(response => {
+=======
+yelp.accessToken(ApiSecrets.clientId, ApiSecrets.clientSecret).then(response => {
+>>>>>>> Fix some .gitignore problems
   const client = yelp.client(response.jsonBody.access_token);
   console.log('access_token: ', response.jsonBody.access_token);
   client.search(searchRequest).then(response => {
