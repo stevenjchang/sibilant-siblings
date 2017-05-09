@@ -15,9 +15,9 @@ var formatData = function(restaurants) {
   return formattedData;
 };
 
-var chooseTasks = function(restaurants) {
+var chooseTasks = function(restaurants, size) {
   var tasks = [];
-  const numTasks = 3;
+  var numTasks = size || 3;
 
   for (var i = 0; i < numTasks; i++) {
     var random = Math.floor( Math.random() * numTasks );
