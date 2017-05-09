@@ -10,19 +10,19 @@ import SignupPage from './SignupPage.jsx';
 import ProfilePage from './ProfilePage.jsx';
 
 const data = window.exampleData;
+var holder = 'default holder';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {input: 'quest_page', biz: data};
+    this.state = {input: 'profile_page', biz: data };
   }
-
   questOnClick(componentName) {
     $.ajax({
       url: '/quest',
       method: 'GET',
       success: (data) => {
-        // console.log(data);
+        this.setState({biz: data});
         $.ajax({
           url: '/quest',
           method: 'POST',
@@ -43,7 +43,7 @@ class App extends React.Component {
     });
     this.setState({input: componentName});
   }
-
+  
   handleClick(componentName) {
     this.setState({input: componentName});
   }
@@ -71,7 +71,6 @@ class App extends React.Component {
           <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">Quest</h3>
-
               <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
                    
           </div>
