@@ -38,6 +38,17 @@ let getQuestFromDb = function(user, callback) {
   })
 }
 
+let setProfilePrefsInDb = function(user, callback) {
+  db.query('INSERT INTO users (username, password, location, preferences) VALUES (?, ?, ?, ?)', [user.username, user.password, user.location, user.preferences], function(err, results) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
 module.exports.getQuestFromDb = getQuestFromDb;
+module.exports.setProfilePrefsInDb = setProfilePrefsInDb;
 module.exports.formatData = formatData;
 module.exports.chooseTasks = chooseTasks;
