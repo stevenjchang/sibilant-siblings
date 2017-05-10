@@ -13,7 +13,14 @@ class Task extends React.Component {
             <div className="checkbox col-xs-6">
               <label><input type="checkbox" value=""/>{this.props.bis.name}</label>
             </div>
-            Restaurant, rating, thumbs up, money rating here
+            <div>
+              <div><img src={this.props.bis.image_url} height="42" width="42"/></div>
+              <div>rating: {this.props.bis.rating}</div>
+              <div>{this.props.bis.price}</div>
+              <div>{this.props.bis.location.address1}, {this.props.bis.location.city}</div>
+              <div>{this.props.bis.phone}</div>
+            </div>
+            
           </div>
         </div>
       </div>
