@@ -23,7 +23,7 @@ const searchRequest = {
 
 //insert token here
 
-const token = '';
+const token = ApiSecrets.yelpToken;
 
 const ApiCall = function(req, res) {
   const location = req.body.zip ? req.body.zip : 94105;

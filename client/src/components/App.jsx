@@ -9,19 +9,23 @@ import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 import ProfilePage from './ProfilePage.jsx';
 
-const data = window.exampleData;
+//const data = window.exampleData;
 var holder = 'default holder';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {input: 'profile_page', biz: data };
+    this.state = {input: 'profile_page', biz: [] };
   }
+  componentDidMount() {}
   questOnClick(componentName) {
     $.ajax({
       url: '/quest',
       method: 'GET',
       success: (data) => {
+        // console.log('this is what this is: ', this);
+        
         this.setState({biz: data});
         $.ajax({
           url: '/quest',
@@ -42,6 +46,7 @@ class App extends React.Component {
       }
     });
     this.setState({input: componentName});
+    
   }
   
   handleClick(componentName) {
