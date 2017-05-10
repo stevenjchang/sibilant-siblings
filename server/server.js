@@ -7,6 +7,7 @@ var ApiCall = require('./../apicall.js');
 var getQuestFromDb = require('./helperFunctions.js').getQuestFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
 var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
+var chooseTasks = require('./helperFunctions.js').chooseTasks;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -40,7 +41,8 @@ app.get('/quest', function (req, res) {
         if(err) {
           console.log('error from getRestaurantsFromYelp, inside server.js');
         } else {
-          res.send(result);
+          var threeTasks = chooseTasks(result)
+          res.send(threeTasks);
         }
       })
     }
