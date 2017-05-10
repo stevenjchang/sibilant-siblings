@@ -21,13 +21,13 @@ var chooseTasks = function(restaurants, size) {
   var numTasks = size || 3;
 
   for (var i = 0; i < numTasks; i++) {
-    var random = Math.floor( Math.random() * numTasks );
+    var random = Math.floor( Math.random() * restaurants.length );
     tasks.push( restaurants[random] );
   }
   return tasks;
 };
 
-let getQuestFromDb = function(user, callback) {
+let getUserPrefsFromDb = function(user, callback) {
   let id = user.id ? user.id : 1;
   db.query('SELECT * FROM users WHERE id = ?', id, function(err, results) {
     if (err) {
@@ -38,6 +38,17 @@ let getQuestFromDb = function(user, callback) {
   })
 }
 
-module.exports.getQuestFromDb = getQuestFromDb;
+let setProfilePrefsInDb = function(user, callback) {
+  db.query('INSERT INTO users (username, password, location, preferences) VALUES (?, ?, ?, ?)', [user.username, user.password, user.location, user.preferences], function(err, results) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+module.exports.getUserPrefsFromDb = getUserPrefsFromDb;
+module.exports.setProfilePrefsInDb = setProfilePrefsInDb;
 module.exports.formatData = formatData;
 module.exports.chooseTasks = chooseTasks;

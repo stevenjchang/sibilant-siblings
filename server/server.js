@@ -4,8 +4,10 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
 var ApiCall = require('./../apicall.js');
-var getQuestFromDb = require('./helperFunctions.js').getQuestFromDb;
+var getUserPrefsFromDb = require('./helperFunctions.js').getUserPrefsFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
+var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
+var chooseTasks = require('./helperFunctions.js').chooseTasks;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -31,17 +33,28 @@ app.post('/', function (req, res) {
 });
 
 app.get('/quest', function (req, res) {
-  getQuestFromDb(req.body, function(err, result) {
+  getUserPrefsFromDb(req.body, function(err, result) {
     if(err) {
-      console.log('error from getQuestFromDb, inside server.js');
+      console.log('error from getUserPrefsFromDb, inside server.js');
     } else {
       getRestaurantsFromYelp(result, function(err, result) {
         if(err) {
           console.log('error from getRestaurantsFromYelp, inside server.js');
         } else {
-          res.send(result);
+          var threeTasks = chooseTasks(result)
+          res.send(threeTasks);
         }
       })
+    }
+  })
+})
+
+app.post('/setprofile', function (req, res) {
+  setProfilePrefsInDb(req.body, function(err, result) {
+    if (err) {
+      console.log('error from setProfilePrefsInDb, inside server.js');
+    } else {
+      res.send("Profile successfully saved!")
     }
   })
 })
@@ -51,8 +64,6 @@ app.post('/quest', function (req, res) {
   res.send(req.body);
   // ApiCall(req, res);
 });
-
-
 
 app.listen(port, function () {
   console.log('Example app listening on port ' + port + '!');
