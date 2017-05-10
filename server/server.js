@@ -6,6 +6,7 @@ var path = require('path');
 var ApiCall = require('./../apicall.js');
 var getQuestFromDb = require('./helperFunctions.js').getQuestFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
+var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -46,13 +47,21 @@ app.get('/quest', function (req, res) {
   })
 })
 
+app.post('/setprofile', function (req, res) {
+  setProfilePrefsInDb(req.body, function(err, result) {
+    if (err) {
+      console.log('error from setProfilePrefsInDb, inside server.js');
+    } else {
+      res.send("Profile successfully saved!")
+    }
+  })
+})
+
 app.post('/quest', function (req, res) {
   console.log("SERVER", req.body);
   res.send(req.body);
   // ApiCall(req, res);
 });
-
-
 
 app.listen(port, function () {
   console.log('Example app listening on port ' + port + '!');
