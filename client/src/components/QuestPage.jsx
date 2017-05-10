@@ -14,9 +14,9 @@ class QuestPage extends React.Component {
     return (
       <div>
         <h2> Food Quest </h2>
-          {(this.props.restos.length > 0) ? this.props.restos.map((restos) => {
+          {(this.props.restos.length > 0) ? this.props.restos.map((restos, i) => {
             return (
-              <div>
+              <div key={i}>
                 <Task bis={restos}/>
               </div>
             );

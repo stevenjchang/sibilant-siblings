@@ -8,6 +8,7 @@ class UserData extends React.Component {
     return(
       <div>
         <p>Preferences:</p>
+        <input></input>
         <p>Italian, Vegetarian, etc.</p>
         <p>Zip: pulled from db</p>
         
