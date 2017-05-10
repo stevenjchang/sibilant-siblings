@@ -4,7 +4,7 @@ const token = ApiSecrets.yelpToken;
 
 let getRestaurantsFromYelp = function(userPref, callback) {
   const id = 1; //hardcoding id for 1st user
-  const location = userPref[0].location ? userPref[0].location : 94105;
+  const location = userPref[0].zip_code ? userPref[0].zip_code : 94105;
   const preferences = userPref[0].preferences ? userPref[0].preferences : "italian, mexican";
   const client = yelp.client(token);
 
