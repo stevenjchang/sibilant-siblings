@@ -14,15 +14,13 @@ class QuestPage extends React.Component {
     return (
       <div>
         <h2> Food Quest </h2>
-          {console.log(this.props.restos)}
-          {(this.props.restos.length > 0) ? this.props.restos.map((restas) => { 
+          {(this.props.restos.length > 0) ? this.props.restos.map((restos) => {
             return (
               <div>
-                <Task boz={restas}/>; 
-                {restas}
+                <Task bis={restos}/>
               </div>
             );
-          }) : console.log('ITS NULL')}
+          }) : console.log('it\'s not greater than 0')}
       </div>
     );
   }
