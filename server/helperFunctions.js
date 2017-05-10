@@ -27,7 +27,7 @@ var chooseTasks = function(restaurants, size) {
   return tasks;
 };
 
-let getQuestFromDb = function(user, callback) {
+let getUserPrefsFromDb = function(user, callback) {
   let id = user.id ? user.id : 1;
   db.query('SELECT * FROM users WHERE id = ?', id, function(err, results) {
     if (err) {
@@ -48,7 +48,7 @@ let setProfilePrefsInDb = function(user, callback) {
   });
 }
 
-module.exports.getQuestFromDb = getQuestFromDb;
+module.exports.getUserPrefsFromDb = getUserPrefsFromDb;
 module.exports.setProfilePrefsInDb = setProfilePrefsInDb;
 module.exports.formatData = formatData;
 module.exports.chooseTasks = chooseTasks;

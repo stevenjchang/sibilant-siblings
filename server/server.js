@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require('path');
 var ApiCall = require('./../apicall.js');
-var getQuestFromDb = require('./helperFunctions.js').getQuestFromDb;
+var getUserPrefsFromDb = require('./helperFunctions.js').getUserPrefsFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
 var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
 var chooseTasks = require('./helperFunctions.js').chooseTasks;
@@ -33,9 +33,9 @@ app.post('/', function (req, res) {
 });
 
 app.get('/quest', function (req, res) {
-  getQuestFromDb(req.body, function(err, result) {
+  getUserPrefsFromDb(req.body, function(err, result) {
     if(err) {
-      console.log('error from getQuestFromDb, inside server.js');
+      console.log('error from getUserPrefsFromDb, inside server.js');
     } else {
       getRestaurantsFromYelp(result, function(err, result) {
         if(err) {
