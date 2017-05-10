@@ -4,15 +4,23 @@ import Task from './Task.jsx';
 class QuestPage extends React.Component {
   constructor (props) {
     super(props);
+    shouldComponentUpdate: (nextProps, nextState) => {
+    // return a boolean value
+      return true;
+    };
   }
 
   render() {
     return (
       <div>
         <h2> Food Quest </h2>
-        <Task />
-        <Task />
-        <Task />
+          {(this.props.restos.length > 0) ? this.props.restos.map((restos) => {
+            return (
+              <div>
+                <Task bis={restos}/>
+              </div>
+            );
+          }) : console.log('it\'s not greater than 0')}
       </div>
     );
   }

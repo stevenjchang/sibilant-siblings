@@ -11,7 +11,7 @@ class Task extends React.Component {
         <div className="panel panel-default">
           <div className="panel-body">
             <div className="checkbox col-xs-6">
-              <label><input type="checkbox" value=""/>Option 1</label>
+              <label><input type="checkbox" value=""/>{this.props.bis.name}</label>
             </div>
             Restaurant, rating, thumbs up, money rating here
           </div>
