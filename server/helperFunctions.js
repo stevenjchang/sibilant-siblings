@@ -21,7 +21,7 @@ var chooseTasks = function(restaurants, size) {
   var numTasks = size || 3;
 
   for (var i = 0; i < numTasks; i++) {
-    var random = Math.floor( Math.random() * numTasks );
+    var random = Math.floor( Math.random() * restaurants.length );
     tasks.push( restaurants[random] );
   }
   return tasks;
