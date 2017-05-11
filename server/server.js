@@ -8,6 +8,7 @@ var getUserPrefsFromDb = require('./helperFunctions.js').getUserPrefsFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
 var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
 var chooseTasks = require('./helperFunctions.js').chooseTasks;
+var setQuestInDb = require('./helperFunctions.js').setQuestInDb;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -41,7 +42,14 @@ app.get('/quest', function (req, res) {
         if(err) {
           console.log('error from getRestaurantsFromYelp, inside server.js');
         } else {
-          var threeTasks = chooseTasks(result)
+          var threeTasks = chooseTasks(result);
+          setQuestInDb(threeTasks, function(err, result) {
+            if(err){
+              console.log('error from setQuestInDb, inside server.js');
+            } else {
+              console.log('success, setQuestInDb in server.js')
+            }
+          });
           res.send(threeTasks);
         }
       })
