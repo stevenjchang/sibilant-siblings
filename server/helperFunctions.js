@@ -22,7 +22,7 @@ var chooseTasks = function(restaurants, size) {
 
   for (var i = 0; i < numTasks; i++) {
     var random = Math.floor( Math.random() * restaurants.length );
-    tasks.push( restaurants[random] );
+    tasks.push( restaurants.splice(random, 1)[0] );
   }
   return tasks;
 };
