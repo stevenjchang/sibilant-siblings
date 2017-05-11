@@ -4,10 +4,6 @@ import Task from './Task.jsx';
 class QuestPage extends React.Component {
   constructor (props) {
     super(props);
-    shouldComponentUpdate: (nextProps, nextState) => {
-    // return a boolean value
-      return true;
-    };
   }
 
   render() {
@@ -20,7 +16,7 @@ class QuestPage extends React.Component {
                 <Task bis={restos}/>
               </div>
             );
-          }) : console.log('it\'s not greater than 0')}
+          }) : console.log('The map has no array in QuestPage.jsx')}
       </div>
     );
   }

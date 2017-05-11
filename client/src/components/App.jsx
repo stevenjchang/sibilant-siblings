@@ -9,37 +9,33 @@ import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 import ProfilePage from './ProfilePage.jsx';
 
-//const data = window.exampleData;
-var holder = 'default holder';
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {input: 'profile_page', biz: [] };
+    this.state = {input: 'profile_page', biz: [], username: 'Enter User', password: 'Enter Password', preferences: 'Italian', location: '94016' };
+    this.updateVal = this.updateVal.bind(this);
   }
-  componentDidMount() {}
+
   questOnClick(componentName) {
+    var prefInfo = {username: this.state.username, password: this.state.password, preferences: this.state.preferences, location: this.state.location};
+    $.ajax({
+      url: '/quest',
+      method: 'POST',
+      data: JSON.stringify(prefInfo),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: ()=>{
+        console.log('this was posted');
+      },
+      error: (err)=>{
+        console.log('Error occured with POST ajax call', err);
+      }
+    });
     $.ajax({
       url: '/quest',
       method: 'GET',
       success: (data) => {
-        // console.log('this is what this is: ', this);
-        
         this.setState({biz: data});
-        $.ajax({
-          url: '/quest',
-          method: 'POST',
-          data: JSON.stringify(data),
-          contentType: 'application/json',
-          dataType: 'json',
-          success: ()=>{
-            console.log('this was posted');
-          },
-          error: (err)=>{
-            console.log('SOMETHING FUCKED UP', err);
-          }
-        });
       },
       error: (err) => {
         console.log('Some Error:', err);
@@ -52,6 +48,13 @@ class App extends React.Component {
   handleClick(componentName) {
     this.setState({input: componentName});
   }
+
+  updateVal(name, event) {
+    var updater = {};
+    updater[name] = event.target.value;
+    this.setState(updater);
+  }
+
 
   render() {
 
@@ -70,13 +73,13 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header />
+          <Header />
 
          <div className="col-md-4 col-md-offset-4 text-center">
           <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title">Quest</h3>
-              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
+            <h3 className="panel-title"></h3>
+              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz} updateVal={this.updateVal} allState={this.state}/>
                    
           </div>
         </div>
