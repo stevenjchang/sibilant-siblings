@@ -22,7 +22,8 @@ CREATE TABLE restaurants (
   rating tinyint(5) unsigned NOT NULL,
   address varchar(100) NOT NULL,
   zip_code varchar(5) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE KEY (yelpId)
 );
 
 CREATE TABLE quests (

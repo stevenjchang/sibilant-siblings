@@ -48,7 +48,43 @@ let setProfilePrefsInDb = function(user, callback) {
   });
 }
 
+let setQuestInDb = function(dataFromYelp, callback) {
+  var dataArray = [
+    dataFromYelp[0].name,
+    dataFromYelp[0].id,
+    dataFromYelp[0].price,
+    dataFromYelp[0].rating,
+    dataFromYelp[0].location.address1,
+    dataFromYelp[0].location.zip_code,
+    dataFromYelp[1].name,
+    dataFromYelp[1].id,
+    dataFromYelp[1].price,
+    dataFromYelp[1].rating,
+    dataFromYelp[1].location.address1,
+    dataFromYelp[1].location.zip_code,
+    dataFromYelp[2].name,
+    dataFromYelp[2].id,
+    dataFromYelp[2].price,
+    dataFromYelp[2].rating,
+    dataFromYelp[2].location.address1,
+    dataFromYelp[2].location.zip_code,
+    1,
+    dataFromYelp[0].id,
+    dataFromYelp[1].id,
+    dataFromYelp[2].id
+  ];
+
+  db.query('BEGIN; INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code)VALUES (?, ?, ?, ?, ?, ?); INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT INTO quests (creator, task1, task1Completed, task2, task2Completed, task3, task3Completed) VALUES (?, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0); COMMIT;', dataArray, function(err, results) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, results)
+    }
+  });
+}
+
 module.exports.getUserPrefsFromDb = getUserPrefsFromDb;
 module.exports.setProfilePrefsInDb = setProfilePrefsInDb;
+module.exports.setQuestInDb = setQuestInDb;
 module.exports.formatData = formatData;
 module.exports.chooseTasks = chooseTasks;
