@@ -16,9 +16,10 @@ var holder = 'default holder';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {input: 'profile_page', biz: [] };
+    this.state = {input: 'profile_page', biz: [], username: 'Enter User', password: 'Enter Password', preferences: 'Italian', location: '94016' };
+    this.updateVal = this.updateVal.bind(this);
   }
-  componentDidMount() {}
+
   questOnClick(componentName) {
     $.ajax({
       url: '/quest',
@@ -51,6 +52,13 @@ class App extends React.Component {
     this.setState({input: componentName});
   }
 
+  updateVal(name, event) {
+    var updater = {};
+    updater[name] = event.target.value;
+    this.setState(updater);
+  }
+
+
   render() {
 
     var ComponentToRender = QuestPage;
@@ -74,7 +82,7 @@ class App extends React.Component {
           <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title"></h3>
-              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz}/>
+              <ComponentToRender questOnClick={this.questOnClick.bind(this)} restos={this.state.biz} updateVal={this.updateVal} allState={this.state}/>
                    
           </div>
         </div>

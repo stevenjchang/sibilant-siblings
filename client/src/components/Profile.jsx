@@ -9,7 +9,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <UserData />
+        <UserData updateVal = {this.props.updateVal} allState = {this.props.allState}/>
       </div>
       
     );

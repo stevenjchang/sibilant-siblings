@@ -8,10 +8,10 @@ class ProfilePage extends React.Component {
   constructor (props) {
     super(props);
   }
-  render(){
-    return(
+  render() {
+    return (
     <div>
-      <Profile />
+      <Profile updateVal = {this.props.updateVal} allState= {this.props.allState}/>
       <QuestButton questOnClick = {this.props.questOnClick}/>
       <QuestLog />
     </div>
