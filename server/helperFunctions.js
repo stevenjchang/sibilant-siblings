@@ -31,12 +31,27 @@ let getUserPrefsFromDb = function(user, callback) {
   let id = user.id ? user.id : 1;
   db.query('SELECT * FROM users WHERE id = ?', id, function(err, results) {
     if (err) {
-      callback(err, null)
+      callback(err, null);
     } else {
-      callback(null, results)
+      callback(null, results);
     }
-  })
-}
+  });
+};
+
+let writeQuestToDB = function(userID, quest) {
+  // adds a new quest to the database, using restaurant IDs
+};
+
+let writeRestaurantToDB = function(restaurant) {
+  // check whether restaurant is in DB
+    // if not, add restaurant
+    // if so, return restaurant ID
+};
+
+let readQuestFromDB = function(userID, quest) {
+  // uses inner join to read a quest from the DB (joining quests & restaurants tables)
+
+};
 
 let setProfilePrefsInDb = function(user, callback) {
   db.query('INSERT INTO users (username, password, location, preferences) VALUES (?, ?, ?, ?)', [user.username, user.password, user.location, user.preferences], function(err, results) {
@@ -88,3 +103,6 @@ module.exports.setProfilePrefsInDb = setProfilePrefsInDb;
 module.exports.setQuestInDb = setQuestInDb;
 module.exports.formatData = formatData;
 module.exports.chooseTasks = chooseTasks;
+module.exports.writeQuestToDB = writeQuestToDB;
+module.exports.writeRestaurantToDB = writeRestaurantToDB;
+module.exports.readQuestFromDB = readQuestFromDB;
