@@ -21,24 +21,25 @@ class App extends React.Component {
   }
 
   questOnClick(componentName) {
+    var prefInfo = {username: this.state.username, password: this.state.password, preferences: this.state.preferences, location: this.state.location};
+    $.ajax({
+      url: '/quest',
+      method: 'POST',
+      data: JSON.stringify(prefInfo),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: ()=>{
+        console.log('this was posted');
+      },
+      error: (err)=>{
+        console.log('Error occured with POST ajax call', err);
+      }
+    });
     $.ajax({
       url: '/quest',
       method: 'GET',
       success: (data) => {
         this.setState({biz: data});
-        // $.ajax({
-        //   url: '/quest',
-        //   method: 'POST',
-        //   data: JSON.stringify(data),
-        //   contentType: 'application/json',
-        //   dataType: 'json',
-        //   success: ()=>{
-        //     console.log('this was posted');
-        //   },
-        //   error: (err)=>{
-        //     console.log('Error occured with POST ajax call', err);
-        //   }
-        // });
       },
       error: (err) => {
         console.log('Some Error:', err);
