@@ -13,7 +13,8 @@ CREATE TABLE users (
   PRIMARY KEY (id),
   UNIQUE KEY (username)
 );
- 
+
+--  NOTE: Add imageUrl field to restaurants table
 CREATE TABLE restaurants (
   id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   name varchar(64) NOT NULL,

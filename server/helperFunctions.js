@@ -40,12 +40,34 @@ let getUserPrefsFromDb = function(user, callback) {
 
 let writeQuestToDB = function(userID, quest) {
   // adds a new quest to the database, using restaurant IDs
+  var defaultUserID = 1;
+  var task1, task2, task3;
+  // task1, task2, and task3 need to have assigned to them the id from the restaurants table of the restaurant being used as a quest task
+  var questQueryData = [defaultUserID, task1, 0, task2, 0, task3, 0];
+  db.query('INSERT INTO quests (creator, task1, task1Completed, task2, task2Completed, task3, task3Completed) VALUES (?, ?, ?, ?, ?, ?, ?)', questQueryData, function(err, results) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
 };
 
-let writeRestaurantToDB = function(restaurant) {
+let writeRestaurantToDB = function(restaurant, callback) {
   // check whether restaurant is in DB
-    // if not, add restaurant
+  if (true) {
     // if so, return restaurant ID
+    // if not, add restaurant
+    var restaurantQueryData = [restaurant.name, restaurant.id, restaurant.price, restaurant.rating, restaurant.location.address1, restaurant.location.zip_code];
+    console.log('restaurantQueryData: ', restaurantQueryData);
+    db.query('INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?)', restaurantQueryData, function(err, results) {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, results);
+      }
+    });
+  }   
 };
 
 let readQuestFromDB = function(userID, quest) {
@@ -61,7 +83,7 @@ let setProfilePrefsInDb = function(user, callback) {
       callback(null, results);
     }
   });
-}
+};
 
 let setQuestInDb = function(dataFromYelp, callback) {
   var dataArray = [
