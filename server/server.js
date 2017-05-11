@@ -29,6 +29,15 @@ app.get('/getRestaurants', function(req, res) {
   res.send('hey');
 });
 
+app.get('/getprofile', function(req, res) {
+  getUserPrefsFromDb(req.body, function(err, result) {
+    if (err) {
+      console.log('Error while looking up user preferences: ', err);
+    }
+    res.send(result);
+  });
+});
+
 app.post('/', function (req, res) {
   console.log('*** req.body *** >server.js --> ', req.body);
   // res.send('POST request received inside server.js');

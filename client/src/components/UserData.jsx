@@ -3,7 +3,6 @@ import React from 'react';
 class UserData extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {username: 'Enter User', password: 'Enter Password', preferences: 'Italian', location: '94016'};
   }
 
 
