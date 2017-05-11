@@ -1,17 +1,20 @@
 import React from 'react';
 
 class UserData extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        <p>Preferences:</p>
-        <input></input>
-        <p>Italian, Vegetarian, etc.</p>
-        <p>Zip: pulled from db</p>
-        
+        <p>Username</p>
+        <input name="username" defaultValue="Enter User"></input>
+        <p>Password</p>
+        <input name="password" defaultValue="Enter Password"></input>
+        <p>Preferences</p>
+        <input name="preferences" defaultValue="Italian"></input>
+        <p>Zip</p>
+        <input name="location" defaultValue="94016"></input>
       </div>
     );
   }
