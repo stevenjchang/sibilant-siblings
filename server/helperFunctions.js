@@ -48,7 +48,19 @@ let setProfilePrefsInDb = function(user, callback) {
   });
 }
 
+let setQuestInDb = function(dataFromYelp, callback) {
+
+  db.query('BEGIN; INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code)VALUES (?, ?, ?, ?, ?, ?); INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT INTO quests (creator, task1, task1Completed, task2, task2Completed, task3, task3Completed) VALUES (?, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0); COMMIT;', dataArray, function(err, results) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, results)
+    }
+  });
+}
+
 module.exports.getUserPrefsFromDb = getUserPrefsFromDb;
 module.exports.setProfilePrefsInDb = setProfilePrefsInDb;
+module.exports.setQuestInDb = setQuestInDb;
 module.exports.formatData = formatData;
 module.exports.chooseTasks = chooseTasks;
