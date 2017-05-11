@@ -7,6 +7,7 @@ var ApiCall = require('./../apicall.js');
 var getUserPrefsFromDb = require('./helperFunctions.js').getUserPrefsFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
 var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
+var updateProfilePrefsInDb = require('./helperFunctions.js').updateProfilePrefsInDb;
 var chooseTasks = require('./helperFunctions.js').chooseTasks;
 var setQuestInDb = require('./helperFunctions.js').setQuestInDb;
 var writeRestaurantToDB = require('./helperFunctions.js').writeRestaurantToDB;
@@ -59,9 +60,9 @@ app.get('/quest', function (req, res) {
 });
 
 app.post('/setprofile', function (req, res) {
-  setProfilePrefsInDb(req.body, function(err, result) {
+  updateProfilePrefsInDb(req.body, function(err, result) {
     if (err) {
-      console.log('error from setProfilePrefsInDb, inside server.js');
+      console.log('error from updateProfilePrefsInDb, inside server.js');
     } else {
       res.send('Profile successfully saved!');
     }

@@ -12,14 +12,15 @@ import ProfilePage from './ProfilePage.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {input: 'profile_page', biz: [], username: 'Enter User', password: 'Enter Password', preferences: 'Italian', location: '94016' };
+    var userObject = {};
+    this.state = {input: 'profile_page', biz: [], username: 'Hungry Johnny', password: '******', preferences: 'Italian', location: '94016' };
     this.updateVal = this.updateVal.bind(this);
   }
 
   questOnClick(componentName) {
     var prefInfo = {username: this.state.username, password: this.state.password, preferences: this.state.preferences, location: this.state.location};
     $.ajax({
-      url: '/quest',
+      url: '/setprofile',
       method: 'POST',
       data: JSON.stringify(prefInfo),
       contentType: 'application/json',
@@ -27,8 +28,8 @@ class App extends React.Component {
       success: ()=>{
         console.log('this was posted');
       },
-      error: (err)=>{
-        console.log('Error occured with POST ajax call', err);
+      error: ()=>{
+        console.log('Error occured with POST ajax call');
       }
     });
     $.ajax({

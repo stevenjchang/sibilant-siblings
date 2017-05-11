@@ -7,6 +7,7 @@ let getRestaurantsFromYelp = function(userPref, callback) {
   const location = userPref[0].location ? userPref[0].location : 94105;
   const preferences = userPref[0].preferences ? userPref[0].preferences : 'italian, mexican';
   const client = yelp.client(token);
+  
   client.search({
     location: location,
     term: preferences
