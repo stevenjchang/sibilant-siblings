@@ -9,10 +9,6 @@ import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 import ProfilePage from './ProfilePage.jsx';
 
-//const data = window.exampleData;
-var holder = 'default holder';
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -77,7 +73,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header />
+          <Header />
 
          <div className="col-md-4 col-md-offset-4 text-center">
           <div className="panel panel-default">

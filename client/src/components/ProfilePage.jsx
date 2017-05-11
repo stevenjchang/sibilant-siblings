@@ -13,7 +13,7 @@ class ProfilePage extends React.Component {
     <div>
       <Profile updateVal = {this.props.updateVal} allState= {this.props.allState}/>
       <QuestButton questOnClick = {this.props.questOnClick}/>
-      <QuestLog />
+
     </div>
     );
   }
