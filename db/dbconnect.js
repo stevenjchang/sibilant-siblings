@@ -8,7 +8,8 @@ var connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
   password: '',
-  database: 'foodQuest'
+  database: 'foodQuest',
+  multipleStatements: true
 });
 
 connection.connect();
