@@ -51,7 +51,7 @@ app.get('/quest', function (req, res) {
     } else {
       getRestaurantsFromYelp(result, function(err, result) {
         if (err) {
-          console.log('error from getRestaurantsFromYelp, inside server.js');
+          console.log('error from getRestaurantsFromYelp, inside server.js', err);
         } else {
           var threeTasks = chooseTasks(result);
           setQuestInDb(threeTasks, function(err, result) {
