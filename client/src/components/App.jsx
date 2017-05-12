@@ -12,14 +12,29 @@ import ProfilePage from './ProfilePage.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {input: 'profile_page', biz: [], username: 'Enter User', password: 'Enter Password', preferences: 'Italian', location: '94016' };
     this.updateVal = this.updateVal.bind(this);
+    this.state = { input: 'profile_page', biz: [], username: ' ', password: ' ', location: ' ', preferences: ' ' };
+  }
+  
+  componentWillMount() {
+    var stateObject = {};
+    $.ajax({
+      url: '/getprofile',
+      method: 'GET',
+      success: (userdata) => {
+        stateObject = { username: userdata[0].username, password: '******', location: userdata[0].location, preferences: userdata[0].preferences };
+        this.setState(stateObject);
+      },
+      error: (err) => {
+        console.log('Error getting user data:', err);
+      }
+    });
   }
 
   questOnClick(componentName) {
-    var prefInfo = {username: this.state.username, password: this.state.password, preferences: this.state.preferences, location: this.state.location};
+    var prefInfo = {username: this.state.username, preferences: this.state.preferences, location: this.state.location};
     $.ajax({
-      url: '/quest',
+      url: '/setprofile',
       method: 'POST',
       data: JSON.stringify(prefInfo),
       contentType: 'application/json',
@@ -28,7 +43,7 @@ class App extends React.Component {
         console.log('this was posted');
       },
       error: (err)=>{
-        console.log('Error occured with POST ajax call', err);
+        console.log('Error occured POSTing profile.');
       }
     });
     $.ajax({
@@ -38,7 +53,7 @@ class App extends React.Component {
         this.setState({biz: data});
       },
       error: (err) => {
-        console.log('Some Error:', err);
+        console.log('Error occurred GETting quest.');
       }
     });
     this.setState({input: componentName});

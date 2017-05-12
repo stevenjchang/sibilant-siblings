@@ -10,7 +10,7 @@ class Header extends React.Component {
       <div>
         <div className="page-header text-center">
           <h1>FoodQuest</h1>
-          <small>The go-to app for foodies</small>
+          <small>the go-to app for Adventurous Eaters</small>
         </div>
       </div>
     );

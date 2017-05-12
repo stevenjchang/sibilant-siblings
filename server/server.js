@@ -7,8 +7,10 @@ var ApiCall = require('./../apicall.js');
 var getUserPrefsFromDb = require('./helperFunctions.js').getUserPrefsFromDb;
 var getRestaurantsFromYelp = require('./../apicall.js').getRestaurantsFromYelp;
 var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
+var updateProfilePrefsInDb = require('./helperFunctions.js').updateProfilePrefsInDb;
 var chooseTasks = require('./helperFunctions.js').chooseTasks;
 var setQuestInDb = require('./helperFunctions.js').setQuestInDb;
+var writeRestaurantToDB = require('./helperFunctions.js').writeRestaurantToDB;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
@@ -27,6 +29,15 @@ app.get('/getRestaurants', function(req, res) {
   res.send('hey');
 });
 
+app.get('/getprofile', function(req, res) {
+  getUserPrefsFromDb(req.body, function(err, result) {
+    if (err) {
+      console.log('Error while looking up user preferences: ', err);
+    }
+    res.send(result);
+  });
+});
+
 app.post('/', function (req, res) {
   console.log('*** req.body *** >server.js --> ', req.body);
   // res.send('POST request received inside server.js');
@@ -35,40 +46,40 @@ app.post('/', function (req, res) {
 
 app.get('/quest', function (req, res) {
   getUserPrefsFromDb(req.body, function(err, result) {
-    if(err) {
+    if (err) {
       console.log('error from getUserPrefsFromDb, inside server.js');
     } else {
       getRestaurantsFromYelp(result, function(err, result) {
-        if(err) {
-          console.log('error from getRestaurantsFromYelp, inside server.js');
+        if (err) {
+          console.log('error from getRestaurantsFromYelp, inside server.js', err);
         } else {
           var threeTasks = chooseTasks(result);
           setQuestInDb(threeTasks, function(err, result) {
-            if(err){
+            if (err) {
               console.log('error from setQuestInDb, inside server.js');
             } else {
-              console.log('success, setQuestInDb in server.js')
+              console.log('success, setQuestInDb in server.js');
             }
           });
           res.send(threeTasks);
         }
-      })
+      });
     }
-  })
-})
+  });
+});
 
 app.post('/setprofile', function (req, res) {
-  setProfilePrefsInDb(req.body, function(err, result) {
+  updateProfilePrefsInDb(req.body, function(err, result) {
     if (err) {
-      console.log('error from setProfilePrefsInDb, inside server.js');
+      console.log('error from updateProfilePrefsInDb, inside server.js');
     } else {
-      res.send("Profile successfully saved!")
+      res.send('Profile successfully saved!');
     }
-  })
-})
+  });
+});
 
 app.post('/quest', function (req, res) {
-  console.log("SERVER", req.body);
+  console.log('SERVER', req.body);
   res.send(req.body);
   // ApiCall(req, res);
 });
