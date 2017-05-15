@@ -37,10 +37,6 @@ app.get('/getprofile', function(req, res) {
   });
 });
 
-app.post('/', function (req, res) {
-  console.log('*** req.body *** >server.js --> ', req.body);
-  res.send(req.body);
-});
 
 app.get('/quest', function (req, res) {
   getUserPrefsFromDb(req.body, function(err, result) {
@@ -74,11 +70,6 @@ app.post('/setprofile', function (req, res) {
       res.send('Profile successfully saved!');
     }
   });
-});
-
-app.post('/quest', function (req, res) {
-  console.log('SERVER', req.body);
-  res.send(req.body);
 });
 
 app.listen(port, function () {
