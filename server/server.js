@@ -37,6 +37,7 @@ app.get('/getprofile', function(req, res) {
   });
 });
 
+
 app.get('/quest', function (req, res) {
   getUserPrefsFromDb(req.body, function(err, result) {
     if (err) {
