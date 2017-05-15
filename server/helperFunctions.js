@@ -64,7 +64,13 @@ let setQuestInDb = function(dataFromYelp, callback) {
     queryData.push(dataFromYelp[i].id);
   }
 
-  db.query('BEGIN; INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); INSERT INTO quests (creator, task1, task1Completed, task2, task2Completed, task3, task3Completed) VALUES (?, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0); COMMIT;', queryData, function(err, results) {
+  var queryStringBegin = 'BEGIN; ';
+  var queryStringInsertRestaurant = 'INSERT IGNORE INTO restaurants (name, yelpId, price, rating, address, zip_code) VALUES (?, ?, ?, ?, ?, ?); ';
+  var queryStringInsertQuestFields = 'INSERT INTO quests (creator, task1, task1Completed, task2, task2Completed, task3, task3Completed) ';
+  var queryStringInsertQuestValues = 'VALUES (?, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0, (SELECT id FROM restaurants WHERE yelpId = ?), 0); ';
+  var fullQueryString = queryStringBegin.concat(queryStringInsertRestaurant, queryStringInsertRestaurant, queryStringInsertRestaurant, queryStringInsertQuestFields, queryStringInsertQuestValues, 'COMMIT;');
+
+  db.query(fullQueryString, queryData, function(err, results) {
     if (err) {
       callback(err, null);
     } else {
