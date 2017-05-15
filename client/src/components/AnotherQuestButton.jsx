@@ -9,7 +9,7 @@ class AnotherQuestButton extends React.Component {
     return (
       <div>
         {/* This component has a stateless text headline. */}
-        <h3>Start Another Quest</h3>
+        <button>Start Another Quest</button>
       </div>
     );
   }
