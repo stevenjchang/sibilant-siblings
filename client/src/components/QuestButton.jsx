@@ -6,7 +6,7 @@ class QuestButton extends React.Component {
   }
   render() {
     return (
-      <button type="button" onClick={() => this.props.questOnClick('quest_page')}>Quest!</button>
+      <button className='btn btn-sm btn-danger' type="button" onClick={() => this.props.questOnClick('quest_page')}>Quest!</button>
     );
   }
 }
