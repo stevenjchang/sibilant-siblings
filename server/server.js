@@ -10,7 +10,6 @@ var setProfilePrefsInDb = require('./helperFunctions.js').setProfilePrefsInDb;
 var updateProfilePrefsInDb = require('./helperFunctions.js').updateProfilePrefsInDb;
 var chooseTasks = require('./helperFunctions.js').chooseTasks;
 var setQuestInDb = require('./helperFunctions.js').setQuestInDb;
-var writeRestaurantToDB = require('./helperFunctions.js').writeRestaurantToDB;
 
 app.use(express.static(path.join(__dirname, '../client/')));
 app.use(express.static(path.join(__dirname, '../db/')));
