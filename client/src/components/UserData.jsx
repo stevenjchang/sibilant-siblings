@@ -9,13 +9,20 @@ class UserData extends React.Component {
   render() {
     return (
       <div>
-        <p>Username</p>
+        <label>Username</label>
+        <br />
         <input disabled name="username" value={this.props.allState.username} onChange={this.props.updateVal.bind(this, 'username')}></input>
-        <p>Password</p>
+        <br />
+        <label>Password</label>
+        <br />
         <input disabled name="password" value={this.props.allState.password} onChange={this.props.updateVal.bind(this, 'password')}></input>
-        <p>Preferences</p>
+        <br />
+        <label>Preferences</label>
+        <br />
         <input name="preferences" value={this.props.allState.preferences} onChange={this.props.updateVal.bind(this, 'preferences')}></input>
-        <p>Zip</p>
+        <br />
+        <label>Zip Code</label>
+        <br />
         <input name="location" value={this.props.allState.location} onChange={this.props.updateVal.bind(this, 'location')}></input>
       </div>
     );
