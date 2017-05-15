@@ -24,6 +24,8 @@ let getUserPrefsFromDb = function(user, callback) {
 };
 
 let setProfilePrefsInDb = function(user, callback) {
+  // This function is not being used in the app, because the multi-user & sessions were never implemented.
+  // Only the funcion below, updateProfilePrefsInDb is being used to update user data for the single user.
   var queryData = [user.username, user.password, user.location, user.preferences];
   db.query('INSERT INTO users (username, password, location, preferences) VALUES (?, ?, ?, ?)', queryData, function(err, results) {
     if (err) {
