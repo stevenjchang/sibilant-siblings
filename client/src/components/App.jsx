@@ -90,7 +90,7 @@ class App extends React.Component {
       <div>
           <Header />
 
-         <div className="col-md-4 col-md-offset-4 text-center">
+         <div className="col-xs-10 col-xs-offset-1 text-center">
           <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title"></h3>
